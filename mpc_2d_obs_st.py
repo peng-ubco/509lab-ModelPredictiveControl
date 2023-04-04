@@ -19,7 +19,7 @@ class MPC:
         self.x_obs = 5
         self.y_obs = 0.1
 
-    def motion_model(self, state, dt, pedal, steering):
+    def system_model(self, state, dt, pedal, steering):
         # Assume we know the state of the car,
         # and state_vector=[pos_x, pos_y, car_angle, velocity]
         # Two control inputs: pedal (pedal_position), and steering (steering_angle)

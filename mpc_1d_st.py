@@ -15,7 +15,7 @@ class MPC:
         # Set point that the controller will achieve.
         self.reference = [50, 0, 0]
 
-    def motion_model(self, prev_state, dt, pedal, steering=0):
+    def system_model(self, prev_state, dt, pedal, steering=0):
         # Assume we know the state of the car,
         # and state_vector=[pos_x, pos_y, car_angle, velocity],
         # Two control inputs: pedal: pedal position, and steering: steering angle

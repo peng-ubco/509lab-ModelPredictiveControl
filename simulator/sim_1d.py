@@ -50,10 +50,10 @@ def run_sim(options, MPC):
         print('Step ' + str(i) + ' of ' + str(sim_total) + '   Time ' + str(round(time.time() - start_time,5)))
         u = u_solution.x
         # Predict the future states
-        predicted_next = mpc.motion_model(state_i[-1], mpc.dt, u[0], u[1])
+        predicted_next = mpc.system_model(state_i[-1], mpc.dt, u[0], u[1])
         predicted_state = np.array([predicted_next])
         for j in range(1, mpc.horizon):
-            predicted = mpc.motion_model(predicted_state[-1], mpc.dt, u[2 * j], u[2 * j + 1])
+            predicted = mpc.system_model(predicted_state[-1], mpc.dt, u[2 * j], u[2 * j + 1])
             predicted_state = np.append(predicted_state, np.array([predicted]), axis=0)
         predict_info += [predicted_state]
         # Assume our model is perfect, so the next_real_state=predicted_next
